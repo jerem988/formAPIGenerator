@@ -117,8 +117,7 @@
 
                     axios.post(APP_URL+'/api/mails', JSON.stringify(data))
                         .then(function (response) {
-                            document.getElementById("debug").innerHTML = response.data;
-
+                            //document.getElementById("debug").innerHTML = response.data;
                             if(response.status == 200 && response.statusText == "OK") {
                                 alert("Le lien a été envoyé sur l'email du répondant.");
                             }
