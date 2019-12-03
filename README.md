@@ -17,11 +17,11 @@
 	
 	2 - Créér un base de données sur son environement locale (exemple "questionnaire_db")
 	
-	3/ Renommer le fichier .env.example en .env
+	3 - Renommer le fichier .env.example en .env
 	
-	4/ Renseigner sa configuration dans le fichier env notamment la partie connection à la base de donnée et la partie mail
+	4 - Renseigner sa configuration dans le fichier env notamment la partie connection à la base de donnée et la partie mail
 	
-	5/ Dans un invité de commande se positionner à la racine du projet et lancer les commandes suivantes:
+	5 - Dans un invité de commande se positionner à la racine du projet et lancer les commandes suivantes:
 		
 		- composer install
 		- npm install
@@ -30,9 +30,9 @@
 		- npm run development ou npm run production
 		- php artisan serve
 
-	6/ L'adresse racine du serveur web s'affiche exemple "http://127.0.0.1:8000", se rendre à cette adresse
+	6 - L'adresse racine du serveur web s'affiche exemple "http://127.0.0.1:8000", se rendre à cette adresse
 	
-	7/ Welcome !
+	7 - Welcome !
 
 Une fois sur l'application, il faut s'enregistrer en cliquant sur "Registrer" puis, une fois fait, le Back-Office apparait.
 
