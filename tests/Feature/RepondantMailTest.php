@@ -6,32 +6,39 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Mail\RepondantMail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class RepondantMailTest extends TestCase
 {
+
     public function testEmail()
     {
+        //Fake mail
         Mail::fake();
 
-        // Assert that no mailables were sent...
-        //Mail::assertNothingSent();
+        // Tester qu'aucun e-mail  n'est encore partie
+        Mail::assertNothingSent();
 
-        $array = Array();
-        $array['mail'] = "jerem98@gmail.com";
-        $array['id_form_repondant'] ="1";
-        $array['form_id'] = 1;
-        $array['user_id'] = 1;
+        //Data du constructeur Mailable
+        $data = new \stdClass();
 
-        $repondant_mail = new RepondantMail($array);
+        //Données email de test
+        $data->mail = "jerem98@gmail.com";
+        $data->id_form_repondant ="1";
+        $data->form_id = 1;
+        $data->user_id = 1;
 
-        // Assert a message was sent to the given users...
-        Mail::assertSent($repondant_mail, function ($mail) use ($array){
-            return $mail->hasTo($array['mail']);
+        //Instance de la classe Mailable
+        $mailable = new RepondantMail($data);
+
+        //Envoyer le fake mail
+        Mail::to($data->mail)->send($mailable);
+
+        // Tester que le mail à été envoyé au bon destinataire
+        Mail::assertSent(RepondantMail::class, function ($mail) use ($data){
+            return  $mail->hasTo($data->mail);
         });
 
-        // Assert a mailable was sent twice...
-        //Mail::assertSent(MailController::class, 2);
+        // Mail envoyé une fois seulement
+        Mail::assertSent(RepondantMail::class, 1);
     }
 }

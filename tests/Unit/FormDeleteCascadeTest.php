@@ -4,12 +4,9 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate;
-use Illuminate\Support\Str;
-use App\User;
 use App\FormRepondant;
 use App\Formulaire;
 use App\Question;
-use App\Repondant;
 use App\Reponse;
 use App\ReponsesRepondant;
 

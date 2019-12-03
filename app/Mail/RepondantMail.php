@@ -24,13 +24,9 @@ class RepondantMail extends Mailable
      *
      * @return void
      */
-    public function __construct(Array $array)
+    public function __construct($data)
     {
-        $this->data = new \stdClass();
-        $this->data->mail = $array['mail'];
-        $this->data->id_form_repondant = $array['id_form_repondant'];
-        $this->data->form_id = $array['form_id'];
-        $this->data->user_id = $array['user_id'];
+        $this->data = $data;
     }
 
     /**
@@ -41,7 +37,7 @@ class RepondantMail extends Mailable
     public function build()
     {
         return $this
-            ->to($this->data->mail)
+            ->to("jerem98@gmail.com")
             ->subject('Enquête de satisfaction')
             ->view('mail.repondantlink');
     }

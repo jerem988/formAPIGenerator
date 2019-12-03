@@ -22,6 +22,7 @@
 	4/ Renseigner sa configuration dans le fichier env notamment la partie connection à la base de donnée et la partie mail
 	
 	5/ Dans un invité de commande se positionner à la racine du projet et lancer les commandes suivantes:
+		
 		- composer install
 		- npm install
 		- php artisan optimize

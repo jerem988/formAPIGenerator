@@ -2390,8 +2390,9 @@ __webpack_require__.r(__webpack_exports__);
           mail: mail
         };
         axios.post(APP_URL + '/api/mails', JSON.stringify(data)).then(function (response) {
+          document.getElementById("debug").innerHTML = response.data;
+
           if (response.status == 200 && response.statusText == "OK") {
-            //document.getElementById("debug").innerHTML = response.data;
             alert("Le lien a été envoyé sur l'email du répondant.");
           }
         })["catch"](function (error) {
@@ -52277,8 +52278,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\formAPIGenerator\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\formAPIGenerator\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Jeremy/Sites/formAPIGenerator/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Jeremy/Sites/formAPIGenerator/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

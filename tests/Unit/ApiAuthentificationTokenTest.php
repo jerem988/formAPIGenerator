@@ -46,6 +46,6 @@ class ApiAuthentificationTokenTest extends TestCase
             ->assertHeader("content-type", "application/json");
 
         //Supression de l'utilisateur
-        //$user->delete();
+        $user->delete();
     }
 }

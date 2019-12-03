@@ -108,7 +108,6 @@
             },
             generateUniqueLink: function(id, mail, id_form_repondant){
                 if (confirm("Valider la génération du lien vers l'e-mail du répondant ? ")) {
-
                     let data = {
                         id_form_repondant: id_form_repondant,
                         form_id: this.id_form,
@@ -118,8 +117,9 @@
 
                     axios.post(APP_URL+'/api/mails', JSON.stringify(data))
                         .then(function (response) {
+                            document.getElementById("debug").innerHTML = response.data;
+
                             if(response.status == 200 && response.statusText == "OK") {
-                                //document.getElementById("debug").innerHTML = response.data;
                                 alert("Le lien a été envoyé sur l'email du répondant.");
                             }
                         })
