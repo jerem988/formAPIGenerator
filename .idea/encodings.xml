@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/.env.example" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.idea/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/README.md" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Formulaire.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/Api/FormRepondantController.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/Api/FormulaireController.php" charset="UTF-8" />
@@ -17,7 +18,6 @@
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/RepondantMail.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Question.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Repondant.php" charset="UTF-8" />
@@ -25,13 +25,22 @@
     <file url="file://$PROJECT_DIR$/app/ReponsesRepondant.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/User.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/database.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/FormRepondantFactory.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/FormulaireFactory.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/QuestionFactory.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/RepondantFactory.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/Reponse.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/ReponsesRepondant.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/UserFactory.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/factories/UserFactory.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_23_195933_create_formulaires_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_23_200600_create_repondants_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_23_201406_create_questions_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_23_201916_create_reponses_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_28_225140_create_form_repondants_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2019_11_28_230924_create_reponses_repondants_table.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/seeds/UserTableSeeder.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/js/app.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/js/bootstrap.js" charset="UTF-8" />
@@ -54,9 +63,10 @@
     <file url="file://$PROJECT_DIR$/routes/web.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tests/Feature/RepondantMailTest.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tests/Unit/ApiAuthentificationTokenTest.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/tests/Unit/DatabaseTest.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/Unit/FormDeleteCascadeTest.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tests/Unit/HttpTest.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tests/Unit/SessionTest.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/composer/autoload_static.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/webpack.mix.js" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />
   </component>

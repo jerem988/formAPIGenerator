@@ -26,17 +26,24 @@ class MailController extends Controller
     public function store(Request $request)
     {
         $data = $request->json()->all();
+        if($this->sendMail($data)){
+            return "true";
+        }
 
+        return "false";
+
+        //return (new App\RepondantMail($data))->render();
+    }
+
+    public function sendMail($data){
         try {
-            Mail::to($data['mail'])
-                ->send(new RepondantMail($data));
+
+            Mail::send(new RepondantMail($data));
         }catch (\Illuminate\Database\QueryException $e) {
             Log::error("Erreur lors de l'envoi du mail au répondant: ". $data['mail']. $e->getMessage());
             throw new Exception("Une erreur s'est produite.");
         }
 
-        return "true";
-
-        //return (new App\RepondantMail($data))->render();
+        return true;
     }
 }

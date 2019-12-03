@@ -2,39 +2,36 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+
 use Tests\TestCase;
 use App\Mail\RepondantMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class RepondantMailTest extends TestCase
 {
     public function testEmail()
     {
-        $this->assertTrue(true);
+        Mail::fake();
 
-        /*Mail::fake();
+        // Assert that no mailables were sent...
+        //Mail::assertNothingSent();
 
-        // Perform order shipping...
+        $array = Array();
+        $array['mail'] = "jerem98@gmail.com";
         $array['id_form_repondant'] ="1";
         $array['form_id'] = 1;
         $array['user_id'] = 1;
 
-        Mail::assertSent(RepondantMail::class, function ($mail) use ($array) {
-            return $array->id_form_repondant === $array['id_form_repondant'];
-        });
+        $repondant_mail = new RepondantMail($array);
 
         // Assert a message was sent to the given users...
-        Mail::assertSent(RepondantMail::class, function ($mail) use ($user) {
-            return $mail->hasTo($user->email) ;
+        Mail::assertSent($repondant_mail, function ($mail) use ($array){
+            return $mail->hasTo($array['mail']);
         });
 
         // Assert a mailable was sent twice...
-        Mail::assertSent(RepondantMail::class, 2);
-
-        // Assert a mailable was not sent...
-        Mail::assertNotSent(RepondantMail::class);*/
+        //Mail::assertSent(MailController::class, 2);
     }
 }
