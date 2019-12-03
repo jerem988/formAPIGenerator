@@ -28,8 +28,7 @@ Mode de déploiement
 	6/ L'adresse racine du serveur web s'affiche exemple "http://127.0.0.1:8000", se rendre à cette adresse
 	7/ Welcome !
 
-Une fois sur l'application, il faut s'enregistrer en cliquant sur "Registrer" puis, une fois fait, se connecter
-avec ses identifiants, le Back-Office apparait.
+Une fois sur l'application, il faut s'enregistrer en cliquant sur "Registrer" puis, une fois fait, le Back-Office apparait.
 
 - Tests unitaire
 

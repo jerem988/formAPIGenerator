@@ -16,8 +16,6 @@ class HttpTest extends TestCase
 public function testUrlRacineTest()
 {
     $response = $this->get('/user');
-    $response->dumpHeaders();
-    $response->dump();
     $response->assertStatus(404 , $response->getStatusCode());
 }
 }
