@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\FormRepondant;
 use App\Repondant;
+use App\ReponsesRepondant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -90,7 +91,20 @@ class FormRepondantController extends Controller
      */
     public function destroy($id)
     {
-        return FormRepondant::destroy($id);
+        try {
+            $form_repondant = FormRepondant::find($id);
+
+            //Supression des réponses existantes
+            ReponsesRepondant::where('repondant_id', $form_repondant->repondant_id)
+                ->where('form_id', $form_repondant->form_id)
+                ->delete();
+
+            return FormRepondant::destroy($id);
+
+        }catch (\Illuminate\Database\QueryException $e) {
+            Log::error("Erreur lors de la modification du formulaire ".$e->getMessage());
+            throw new Exception("Une erreur s'est produite.");
+        }
     }
 
     public function getListOptionsRepondant($form_id){

@@ -40,5 +40,9 @@ Route::get('mes-repondants-formulaires/{id}', function ($id) {
 
 /* Front Office */
 Route::get('enquete-de-satisafication/{id_form_repondant}/{form_id}/{user_id}', function ($id_form_repondant, $form_id, $user_id) {
-    return view('repondantview', ['id_form_repondant' => $id_form_repondant, 'form_id' => $form_id, 'user_id' => $user_id]);
+    return view('repondantview', ['id_form_repondant' => $id_form_repondant, 'form_id' => $form_id, 'user_id' => $user_id, 'admin' => 0]);
 })->name('repondant-view');
+
+Route::get('admin-enquete-de-satisafication/{id_form_repondant}/{form_id}/{user_id}', function ($id_form_repondant, $form_id, $user_id) {
+    return view('repondantview', ['id_form_repondant' => $id_form_repondant, 'form_id' => $form_id, 'user_id' => $user_id, 'admin' => 1]);
+})->name('admin-repondant-view');

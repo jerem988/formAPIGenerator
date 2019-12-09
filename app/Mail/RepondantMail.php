@@ -37,7 +37,7 @@ class RepondantMail extends Mailable
     public function build()
     {
         return $this
-            ->to("jerem98@gmail.com")
+            ->to($this->data->mail)
             ->subject('Enquête de satisfaction')
             ->view('mail.repondantlink');
     }

@@ -11,6 +11,7 @@
                         <th scope="col">Date Création</th>
                         <th scope="col">Suppression</th>
                         <th scope="col" v-show="id_form">Générer lien unique</th>
+                        <th scope="col" v-show="id_form">Voir Reponses</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +24,8 @@
                             <td>{{item.created_at}}</td>
                             <td class="text-center" v-if="id_form"><button type="button" class="btn btn-danger" @click="deleteFormItem(item.id_form_repondant)"><span class="fas fa-trash"></span></button></td>
                             <td class="text-center" v-else ><button type="button" class="btn btn-danger" @click="deleteItem(item.id)"><span class="fas fa-trash"></span></button></td>
-                            <td class="text-center"v-show="id_form" ><button type="button" class="btn btn-primary" @click="generateUniqueLink(item.id, item.mail, item.id_form_repondant)"><span class="fas fa-link"></span></button></td>
+                            <td class="text-center" v-show="id_form" ><button type="button" class="btn btn-primary" @click="generateUniqueLink(item.id, item.mail, item.id_form_repondant)"><span class="fas fa-link"></span></button></td>
+                            <td class="text-center" v-show="id_form" ><button type="button" class="btn btn-success" @click="showReponses(item.id, item.id_form_repondant)"><span class="fas fa-eye"></span></button></td>
                         </tr>
                     </template>
                 </tbody>
@@ -107,6 +109,7 @@
                 }
             },
             generateUniqueLink: function(id, mail, id_form_repondant){
+                console.log(mail);
                 if (confirm("Valider la génération du lien vers l'e-mail du répondant ? ")) {
                     let data = {
                         id_form_repondant: id_form_repondant,
@@ -128,6 +131,10 @@
                 }else {
                     alert("Le lien n'a pas été généré.");
                 }
+            },
+            showReponses: function(id, id_form_repondant){
+                let url = APP_URL + '/admin-enquete-de-satisafication/' + id_form_repondant + '/' + this.id_form + '/' + id;
+                window.open(url, '_blank');
             },
         }
     }

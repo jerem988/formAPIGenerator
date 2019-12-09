@@ -12,7 +12,7 @@
                             <div v-if="quest.element === 'radiobox'">
                                 <template v-for="choice in quest.inputs">
                                     <div class="form-check">
-                                        <input class="form-check-input" v-model="quest.reponse_id_radio" :name="choice.name" type="radio" :value="choice.id" v-on:change="inputListeners">
+                                        <input class="form-check-input" v-model="quest.reponse_id_radio" :name="choice.name" type="radio" :value="choice.id" v-on:change="inputListeners" :disabled="admin == 1">
                                         <label class="form-check-label" :for="choice.id">{{ choice.libelle }}</label>
                                     </div>
                                 </template>
@@ -20,14 +20,14 @@
                             <div v-else-if="quest.element === 'checkbox'">
                                 <template v-for="choice in quest.inputs">
                                     <div class="form-check">
-                                        <input class="form-check-input" v-model="quest.reponse_id_checkbox" :name="choice.name" type="checkbox" :value="choice.id" v-on:change="inputListeners">
+                                        <input class="form-check-input" v-model="quest.reponse_id_checkbox" :name="choice.name" type="checkbox" :value="choice.id" v-on:change="inputListeners" :disabled="admin == 1">
                                         <label class="form-check-label" :for="choice.id">{{ choice.libelle }}</label>
                                     </div>
                                 </template>
                             </div>
                             <div v-else>
                                 <div class="form-check">
-                                    <textarea class="form-control" v-model="quest.reponse_textarea" rows="4" cols="40" v-bind="$attrs" v-on:input="inputListeners"></textarea>
+                                    <textarea class="form-control" v-model="quest.reponse_textarea" rows="4" cols="40" v-bind="$attrs" v-on:input="inputListeners" :disabled="admin == 1"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
             </body-card>
             <br>
             <div class="text-center">
-                <button type="submit" class="btn-submit btn btn-primary" @click="submitForm(true)">Valider</button>
+                <button type="submit" class="btn-submit btn btn-primary" v-show="admin == 0" @click="submitForm(true)">Valider</button>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
 
     export default {
         components: {BodyCard,AlertSuccess},
-        props: ["id_form_repondant","id_form","id_user"],
+        props: ["id_form_repondant","id_form","id_user", "admin"],
         data(){
             return {
                 currentElement: '',
@@ -88,7 +88,7 @@
                         console.log(responseData)
 
                         //Formulaire clôturé ou non
-                        if(responseData.form_repondants[0].date_validation){
+                        if(responseData.form_repondants[0].date_validation && this.admin == 0){
                             this.questionnaireCloturer = true;
                         }
 

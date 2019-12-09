@@ -2308,6 +2308,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id_form'],
   data: function data() {
@@ -2382,6 +2384,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     generateUniqueLink: function generateUniqueLink(id, mail, id_form_repondant) {
+      console.log(mail);
+
       if (confirm("Valider la génération du lien vers l'e-mail du répondant ? ")) {
         var data = {
           id_form_repondant: id_form_repondant,
@@ -2400,6 +2404,10 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         alert("Le lien n'a pas été généré.");
       }
+    },
+    showReponses: function showReponses(id, id_form_repondant) {
+      var url = APP_URL + '/admin-enquete-de-satisafication/' + id_form_repondant + '/' + this.id_form + '/' + id;
+      window.open(url, '_blank');
     }
   }
 });
@@ -2579,7 +2587,7 @@ __webpack_require__.r(__webpack_exports__);
     BodyCard: _BodyCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     AlertSuccess: _AlertSuccess_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ["id_form_repondant", "id_form", "id_user"],
+  props: ["id_form_repondant", "id_form", "id_user", "admin"],
   data: function data() {
     return {
       currentElement: '',
@@ -2615,7 +2623,7 @@ __webpack_require__.r(__webpack_exports__);
         var responseData = response.data;
         console.log(responseData); //Formulaire clôturé ou non
 
-        if (responseData.form_repondants[0].date_validation) {
+        if (responseData.form_repondants[0].date_validation && _this.admin == 0) {
           _this.questionnaireCloturer = true;
         }
 
@@ -38806,6 +38814,22 @@ var render = function() {
                   attrs: { scope: "col" }
                 },
                 [_vm._v("Générer lien unique")]
+              ),
+              _vm._v(" "),
+              _c(
+                "th",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.id_form,
+                      expression: "id_form"
+                    }
+                  ],
+                  attrs: { scope: "col" }
+                },
+                [_vm._v("Voir Reponses")]
               )
             ])
           ]),
@@ -38892,6 +38916,39 @@ var render = function() {
                             }
                           },
                           [_c("span", { staticClass: "fas fa-link" })]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.id_form,
+                            expression: "id_form"
+                          }
+                        ],
+                        staticClass: "text-center"
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.showReponses(
+                                  item.id,
+                                  item.id_form_repondant
+                                )
+                              }
+                            }
+                          },
+                          [_c("span", { staticClass: "fas fa-eye" })]
                         )
                       ]
                     )
@@ -39112,7 +39169,8 @@ var render = function() {
                                         staticClass: "form-check-input",
                                         attrs: {
                                           name: choice.name,
-                                          type: "radio"
+                                          type: "radio",
+                                          disabled: _vm.admin == 1
                                         },
                                         domProps: {
                                           value: choice.id,
@@ -39169,7 +39227,8 @@ var render = function() {
                                         staticClass: "form-check-input",
                                         attrs: {
                                           name: choice.name,
-                                          type: "checkbox"
+                                          type: "checkbox",
+                                          disabled: _vm.admin == 1
                                         },
                                         domProps: {
                                           value: choice.id,
@@ -39255,7 +39314,11 @@ var render = function() {
                                         }
                                       ],
                                       staticClass: "form-control",
-                                      attrs: { rows: "4", cols: "40" },
+                                      attrs: {
+                                        rows: "4",
+                                        cols: "40",
+                                        disabled: _vm.admin == 1
+                                      },
                                       domProps: {
                                         value: quest.reponse_textarea
                                       },
@@ -39298,6 +39361,14 @@ var render = function() {
               _c(
                 "button",
                 {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.admin == 0,
+                      expression: "admin == 0"
+                    }
+                  ],
                   staticClass: "btn-submit btn btn-primary",
                   attrs: { type: "submit" },
                   on: {
@@ -52277,8 +52348,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Jeremy/Sites/formAPIGenerator/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Jeremy/Sites/formAPIGenerator/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\formAPIGenerator\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\formAPIGenerator\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
